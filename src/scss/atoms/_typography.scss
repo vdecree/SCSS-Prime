@@ -1,38 +1,151 @@
-// We use modularscale for our typography: https://www.modularscale.com/
+:root {
+  --font-primary: sans-serif;
+  --font-secondary: serif;
 
-// Notes
-// it’s a common practice in typography to declare your line height between 120% - 150% of your base font size
+  /* set base values */
+  --text-base-size: 1em;
+  --text-scale-ratio: 1.25;
 
-// define defaults
-$modularscale: (
-  base: 1em 91.111em 12em,
-  ratio: 1.125,
-  91em: (
-    base: 1.125em 91.111em 12em,
-    ratio: 1.414,
-  ),
-);
+  /* type scale */
+  --fs-xs: calc(1em / (var(--text-scale-ratio) * var(--text-scale-ratio)));
+  --fs-sm: calc(1em / var(--text-scale-ratio));
+  //h4
+  --fs-md: calc(1em * var(--text-scale-ratio));
+  //h3
+  --fs-lg: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio));
+  //h2
+  --fs-xl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
+  //h1
+  --fs-xxl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
+  --fs-xxxl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
 
-$h1: ms(7);
-$h2: ms(5);
-$h3: ms(3);
-$h4: ms(1);
+  //line-height
+  --headling-line-height: 1.25em;
+  --body-line-height: 1.4;
 
-:root, body{
-    --h1: #{$h1}; 
-    --h2: #{$h2}; 
-    --h3: #{$h3}; 
-    --h4: #{$h4}; 
-    --base-font: "arial", sans-serif;
-    --base-font-size: 1.125em;
+  //fonts
+  --font-primary: "Arial";
+
+  //spacing
+  --space-unit:  1em;
+	 --space-xxxxs: calc(0.125 * var(--space-unit));
+	 --space-xxxs:  calc(0.25 * var(--space-unit));
+	 --space-xxs:   calc(0.375 * var(--space-unit));
+	 --space-xs:    calc(0.5 * var(--space-unit));
+	 --space-sm:    calc(0.75 * var(--space-unit));
+	 --space-md:    calc(1.25 * var(--space-unit));
+	 --space-lg:    calc(2 * var(--space-unit));
+	 --space-xl:    calc(3.25 * var(--space-unit));
+	 --space-xxl:   calc(5.25 * var(--space-unit));
+	 --space-xxxl:  calc(8.5 * var(--space-unit));
+	 --space-xxxxl: calc(13.75 * var(--space-unit));
+	 --component-padding: var(--space-md);
 }
 
-body{
-    font-family: var(--base-font);
-    font-size: var(--base-font-size);
+@media(min-width:64rem) {
+  body {
+   --text-base-size: 1.125em;
+   --text-scale-ratio: 1.25
+  }
+ }
+
+body {
+  font-size: var(--text-base-size);
+  font-family: var(--font-primary);
+  color: var(--color-text);
 }
 
-h1{ @include ms-respond(font-size,7) }
-h2{ font-size: var(--h2); }
-h3{ font-size: var(--h3); }
-h4{ font-size: var(--h4); }
+h1, h2, h3, h4, form legend {
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-xxs);
+  line-height: var(--heading-line-height);
+}
+
+/* text size */
+.text--xxxl {
+  font-size: var(--fs-xxxl);
+}
+
+h1, .text--xxl {
+  font-size: var(--fs-xxl);
+}
+
+h2, .text--xl {
+  font-size: var(--fs-xl);
+}
+
+h3, .text--lg {
+  font-size: var(--fs-lg);
+}
+
+h4, .text--md {
+  font-size: var(--fs-md);
+}
+
+.text--sm, small {
+  font-size: var(--fs-sm);
+}
+
+.text--xs {
+  font-size: var(--fs-xs);
+}
+
+p {
+  line-height: var(--body-line-height);
+}
+
+.text-component {
+  --line-height-multiplier: 1;
+  --text-vspace-multiplier: 1;
+}
+.text-component h1,
+.text-component h2,
+.text-component h3,
+.text-component h4,
+.text-component h5{
+  line-height:calc(var(--heading-line-height) * var(--line-height-multiplier,1));
+  margin-bottom:calc(var(--space-unit) * 0.45 * var(--text-vspace-multiplier));
+}
+.text-component h2,
+.text-component h3,
+.text-component h4,
+.text-component h5{
+  margin-top:calc(var(--space-unit) * 0.85 * var(--text-vspace-multiplier));
+}
+.text-component p,
+.text-component blockquote,
+.text-component ul li,
+.text-component ol li {
+  line-height:calc(var(--body-line-height) * var(--line-height-multiplier,1));
+}
+.text-component ul,
+.text-component ol,
+.text-component p,
+.text-component blockquote,
+.text-component .table,
+.text-component pre,
+.text-component .video-wrapper,
+.text-component .text-component__block {
+  margin-bottom:calc(var(--space-unit) * 0.9 * var(--text-vspace-multiplier));
+}
+.text-component ul,
+.text-component ol {
+  padding-left:1em
+}
+.text-component ul {
+  list-style-type:disc
+}
+.text-component ol {
+  list-style-type:decimal
+}
+
+.text-component{
+
+  & > :last-child{
+    margin-bottom: 0;
+  }
+
+  & > :first-child{
+    margin-top: 0;
+  }
+}
