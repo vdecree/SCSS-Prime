@@ -1,0 +1,38 @@
+// We use modularscale for our typography: https://www.modularscale.com/
+
+// Notes
+// it’s a common practice in typography to declare your line height between 120% - 150% of your base font size
+
+// define defaults
+$modularscale: (
+  base: 1em 91.111em 12em,
+  ratio: 1.125,
+  91em: (
+    base: 1.125em 91.111em 12em,
+    ratio: 1.414,
+  ),
+);
+
+$h1: ms(7);
+$h2: ms(5);
+$h3: ms(3);
+$h4: ms(1);
+
+:root, body{
+    --h1: #{$h1}; 
+    --h2: #{$h2}; 
+    --h3: #{$h3}; 
+    --h4: #{$h4}; 
+    --base-font: "arial", sans-serif;
+    --base-font-size: 1.125em;
+}
+
+body{
+    font-family: var(--base-font);
+    font-size: var(--base-font-size);
+}
+
+h1{ @include ms-respond(font-size,7) }
+h2{ font-size: var(--h2); }
+h3{ font-size: var(--h3); }
+h4{ font-size: var(--h4); }

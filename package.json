@@ -1,0 +1,41 @@
+{
+  "name": "doidge-perch-scaffold",
+  "version": "1.0.0",
+  "description": "A basic scaffold for starting fresh Perch builds with Docker.",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^4.0.1",
+    "node-gyp": "^4.0.0",
+    "yargs": "^13.2.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/register": "^7.0.0",
+    "alcedo": "^2.0.5",
+    "ansi-colors": "^3.2.4",
+    "browser-sync": "^2.26.5",
+    "cssnano": "^4.1.10",
+    "del": "^4.1.1",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-if": "^2.0.2",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "modularscale-sass": "^3.0.10",
+    "newer": "^0.1.5",
+    "run-sequence": "^2.2.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
